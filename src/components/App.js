@@ -10,7 +10,6 @@ import Cowbell from '../ressources/Cowbell.mp3';
 import Woodblock from '../ressources/Woodblock.mp3';
 
 
-const API_KEY = '93f2be180a4be75f06c1a7d2829e8bbc'
 
 export default function App() {
 
@@ -103,20 +102,6 @@ export default function App() {
         })
     }, [bpm])
         
-
-    useEffect(() => {
-      (async () => {
-        const res = await axios.get(`https://api.getsongbpm.com/tempo/`, {
-          headers: {
-            Authorization: API_KEY,
-          },
-          params: {
-          bpm: debouncedBpm
-        }})
-        setSongs(res.data)
-        console.log(res.data)
-      })()
-    }, [debouncedBpm])
 
     return (
         <>
